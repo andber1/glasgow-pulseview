@@ -1,11 +1,23 @@
-# Glasgow Interface Explorer
+# Glasgow Interface Explorer with sigrok PulseView support
 
-For all information regarding this project, please refer to our [documentation manual](https://glasgow-embedded.org/).
+This fork adds a **logic analyzer** that emulates a BeagleLogic device for seamless integration with [**sigrok PulseView**](https://sigrok.org/wiki/PulseView).
 
-## ⚠️⚠️⚠️ NEWCOMERS AND CROWDSUPPLY BUYERS: PLEASE READ THIS FIRST ⚠️⚠️⚠️
+## Getting Started
+Example:
+```
+glasgow run analyzer_beagle -V 2.0 --i A0
+```
 
-At the moment the project does not see much activity because the founder and primary maintainer, [Catherine @whitequark](https://github.com/whitequark), has spent several years struggling to survive due to disability, large scale social unrest, and other factors. She has now moved to the UK, got necessary healthcare, and is doing a lot better; the project's pace will pick up soon and more maintainers will be added to the current team of three in close future, but the timing of Crowdsupply orders being shipped doesn't match up to maintainer capacity a little bit.
+Open PulseView and connect to a new device. Apply these settings:
+![](./PulseViewNewDevice.png)
 
-Please stay patient and keep in mind that hardware is made by people who have limited capacity and sometimes need to recover from extreme events.
+Click on `Run`.
+![](./PulseViewExample.png)
 
-If you want to show appreciation or help with Catherine's living costs, she has a personal [Patreon](https://patreon.com/whitequark). These donations will not impact the progress of the project since the limiting factor is health first and time second, but they are very much appreciated.
+
+
+## Limitations
+- This is only a very simple BeagleLogic emulation. Use this solution with caution and test thoroughly in your environment
+- Only 8 channels
+- Channels are not named correctly in PulseView
+- No endless capturing. Set the numbner of samples accordingly in PulseView
